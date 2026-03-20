@@ -8,6 +8,9 @@ formCadastro.addEventListener("submit", (envio) => {
 
     alert("Cadastro efetuado com sucesso !");
 
+    // Limpa os campos do form
+            formCadastro.reset();
+
 } );
 
 
@@ -40,11 +43,33 @@ function buscarCEP(){
         .then(response => response.json())
         // Mostra os dados.
         .then(dados => {
-            console.log(dados);
+            
+            if(dados.erro){
+                console.error("CEP Inválido: ", dados.erro);
+
+                // Limpa os campos do endereço
+                formCadastro.logradouro.value = "";
+                formCadastro.bairro.value = "";
+                formCadastro.cidade.value = "";
+                formCadastro.uf.value = "";
+                formCadastro.numero.value = "";
+                formCadastro.complemento.value = "";
+                return;
+            }
+            // Preenche os campos do form
+            formCadastro.logradouro.value = dados.logradouro;
+            formCadastro.bairro.value = dados.bairro;
+            formCadastro.cidade.value = dados.localidade;
+            formCadastro.uf.value = dados.uf;
+
+            // Coloca o foco (Barra de escrita) no campo número.
+            formCadastro.numero.focus();
+
+
             
         })
         // Se houver erro, captura.
         .catch(erro => {
-            console.error("CEP Inválido");
+            console.error("CEP Inválido: ", dados.erro);
         });    
 };

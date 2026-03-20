@@ -1,0 +1,146 @@
+/* Importando uma fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Variáveis de cores para facilitar a manutenção */
+:root {
+    --primary-color: #4F46E5; /* Azul Indigo */
+    --primary-hover: #4338CA;
+    --bg-color: #F3F4F6;
+    --card-bg: #FFFFFF;
+    --text-color: #1F2937;
+    --label-color: #4B5563;
+    --border-color: #D1D5DB;
+    --input-focus: rgba(79, 70, 229, 0.2);
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Container do Formulário */
+#formCadastro {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Sombra suave */
+}
+
+/* Ocultando os <br> para termos controle total do espaçamento via CSS */
+#formCadastro br {
+    display: none;
+}
+
+#formCadastro hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 20px 0;
+}
+
+/* Estilização das Labels */
+label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--label-color);
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+
+label:first-of-type {
+    margin-top: 0;
+}
+
+/* Estilização dos Inputs */
+input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: #F9FAFB;
+    transition: all 0.3s ease;
+}
+
+/* Efeito de foco ao clicar no input */
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #FFF;
+    box-shadow: 0 0 0 4px var(--input-focus);
+}
+
+/* Estilização dos Botões */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:active {
+    transform: scale(0.98); /* Efeito de clique */
+}
+
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary-hover);
+}
+
+button[type="reset"] {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+button[type="reset"]:hover {
+    background-color: var(--bg-color);
+}
+
+/* --- TRUQUE DA SETINHA --- */
+/* Remove as setas no Chrome, Edge, Safari e Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove as setas no Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
